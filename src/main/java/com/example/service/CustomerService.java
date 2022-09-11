@@ -39,7 +39,7 @@ public class CustomerService implements ICustomerService {
 	public void update(Long customerId, Customer newCustomer) {
 		Optional<Customer> data = customerDBList.stream().filter(item -> Objects.equals(item.getCustomerId(), customerId)).findAny();
 		if (!data.isPresent()) {
-			throw new IllegalArgumentException("Data Bulunamadı");
+			throw new IllegalArgumentException("Data Not Found.");
 		}
 		customerDBList.removeIf(item -> Objects.equals(item.getCustomerId(), customerId));
 		Customer model = newCustomer;
